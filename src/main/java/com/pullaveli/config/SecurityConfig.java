@@ -21,7 +21,8 @@ public class SecurityConfig {
             )
             .logout(logout -> logout
                 .logoutSuccessUrl("/")
-            );
+            )
+            .csrf(csrf -> csrf.disable()); // Disabling CSRF for simplicity in this demo to allow logout via simple form without token
         return http.build();
     }
 }

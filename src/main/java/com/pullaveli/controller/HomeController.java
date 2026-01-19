@@ -22,9 +22,9 @@ public class HomeController {
                    "<p><strong>Access Token:</strong> " + authorizedClient.getAccessToken().getTokenValue() + "</p>" +
                    "<p><strong>Refresh Token:</strong> " + refreshToken + "</p>" +
                    "<br>" +
-                   "<a href=\"/logout\">Logout</a>"; // Spring Security's default logout supports GET if CSRF is disabled or configured, but usually POST is preferred. For simplicity in this raw string return, a link to /logout works if we configure it or if we accept the default behavior which might require a form.
-                   // Actually, Spring Security 6 / Boot 3 defaults to requiring POST for logout.
-                   // Let's use a form to be safe and correct.
+                   "<form action=\"/logout\" method=\"post\">" +
+                   "  <button type=\"submit\">Logout</button>" +
+                   "</form>";
         }
         return "Hello, Guest!";
     }
